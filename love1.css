@@ -1,59 +1,14 @@
-body{
-   margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background: #9e8e8e;
-    overflow: hidden;
-}
-.blur-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #9e8e8e;
+  overflow: hidden;
+  font-family: 'Playfair Display', serif;
 }
 
-.blur-circle {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  backdrop-filter: blur(20px);
-  filter: blur(100px);
-  opacity: 0.6;
-  clip-path: path("M150 270 C-50 150, 50 -50, 150 80 C 250 -50,350 150, 150 270 Z");
-  animation: float 4s ease-in-out infinite;
- box-shadow:  0 0 60px rgba(255, 0, 85, 0.9),
-  0 0 120px rgba(255, 0, 85, 0.9),
-  0 0 180px rgba(255, 0, 85, 0.9);
-}
-
-.blur-circle.one {
-  background: #f90202;
-  top: 10%;
-  left: 5%;
-}
-
-.blur-circle.two {
-  background: #fa02bc;
-  bottom: 15%;
-  right: 10%;
-}
-
-.blur-circle.three {
-  background: #fd024d;
-  top: 50%;
-  left: 60%;
-}
-.blur-circle.four {
-  background: #f90202;
-  top: 10%;
-  left: 30%;
-}
-.blur-circle.five {
-  background: #f90202;
-  top: 30%;
-  left: 15%;
-}
-.cards-container{
+.cards-container {
   width: 100vw;
   height: 100vh;
   background: #111;
@@ -62,12 +17,17 @@ body{
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
+
+
 .card {
   text-align: center;
   position: relative;
-  width: 20vw;
-  height: 15vh;
+  width: 90%;
+  max-width: 350px;
+  min-height: 100px;
   background: crimson;
   color: white;
   display: flex;
@@ -75,37 +35,68 @@ body{
   align-items: center;
   border-radius: 12px;
   font-weight: bold;
-  font-size: 1.2rem;
-  z-index: 1;
-  margin: 10px 0;
-  animation: slide 10s ease-in-out infinite alternate;
-  animation-delay: calc(var(--i) * 5s);
+  font-size: clamp(1rem, 1.2vw, 1.5rem);
+  z-index: 2;
+  margin: 12px 0;
+  animation: slide 6s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * 0.5s);
 }
+
+
 @keyframes slide {
-  0%   { transform: translateX(600px); }
-  50%  { transform: translateX(-600px); } 
-  100% { transform: translateX(600px); }    
+  0%   { transform: translateX(-20px); }
+  50%  { transform: translateX(20px); } 
+  100% { transform: translateX(-20px); }    
 }
+
+
+.blur-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.blur-circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  filter: blur(80px);
+  opacity: 1;
+  border-radius: 50%; 
+  animation: float 4s ease-in-out infinite;
+  box-shadow:
+    0 0 60px rgba(255, 0, 85, 0.9),
+    0 0 120px rgba(255, 0, 85, 0.9),
+    0 0 180px rgba(255, 0, 85, 0.9);
+}
+
+.blur-circle.one { background: #f90202; top: 10%; left: 5%; }
+.blur-circle.two { background: #fa02bc; bottom: 15%; right: 10%; }
+.blur-circle.three { background: #fd024d; top: 50%; left: 60%; }
+.blur-circle.four { background: #f90202; top: 10%; left: 30%; }
+.blur-circle.five { background: #f90202; top: 30%; left: 15%; }
+
 @keyframes float {
   0% { transform: translateY(0px) scale(1); }
   50% { transform: translateY(-20px) scale(1.05); }
   100% { transform: translateY(0px) scale(1); }
 }
-@keyframes glowPulse {
-  0% {
-    box-shadow:
-      0 0 40px rgba(255, 0, 85, 0.4),
-      0 0 80px rgba(255, 0, 85, 0.3);
+
+
+@media (max-width: 768px) {
+  .card {
+    width: 95%;
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    margin: 8px 0;
   }
-  50% {
-    box-shadow:
-      0 0 80px rgba(255, 0, 85, 0.8),
-      0 0 160px rgba(255, 0, 85, 0.6);
-  }
-  100% {
-    box-shadow:
-      0 0 40px rgba(255, 0, 85, 0.4),
-      0 0 80px rgba(255, 0, 85, 0.3);
-  }
+  .blur-circle { width: 150px; height: 150px; }
 }
 
+@media (max-width: 480px) {
+  .card {
+    width: 98%;
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    margin: 6px 0;
+  }
+  .blur-circle { width: 120px; height: 120px; }
+}
