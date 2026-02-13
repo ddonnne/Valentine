@@ -1,52 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Gbeklui Etornam</title>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="love1.css">
-    </head>
-    <body>
-        <div class="cards-container">
-                        <div class="blur-bg">
-            <span class="blur-circle one"></span>
-            <span class="blur-circle two"></span>
-            <span class="blur-circle three"></span>
-            <span class="blur-circle four"></span>
-            <span class="blur-circle five"></span>
-            </div>
-            <div class="card" style="--i:0;">You carry more depth
-than you let people see.
-It’s one of the things
-I admire about you.
-I love you.</div>
-    <div class="card" style="--i:1;">Strong mind.
-Soft heart.
-Unmatched presence.
-I love you.</div>
-    <div class="card" style="--i:2;">You pretend you’re ordinary,
-but there’s nothing ordinary
-about your spirit.
-I love you</div>
-    <div class="card" style="--i:3;">Your quiet strength
-speaks louder
-than most people’s noise.
-I love you.</div>
-    <div class="card" style="--i:4;">There’s a rare kind of fire
-in you —
-steady, not loud.
-I love you.</div>
-    <div class="card" style="--i:5;">You don’t try to shine,
-yet somehow
-you always do.
-I love you</div>
-    <div class="card" style="--i:6;">We may joke,
-we may clash,
-but I see your worth.
-I love you.</div>
-</div>
-</div>
-        </div>
-        <script src="love.js"></script>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gbeklui Etornam</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="love1.css">
+</head>
+<body>
+  <div class="cards-container">
+
+    
+    <div class="blur-bg">
+      <span class="blur-circle one"></span>
+      <span class="blur-circle two"></span>
+      <span class="blur-circle three"></span>
+      <span class="blur-circle four"></span>
+      <span class="blur-circle five"></span>
+    </div>
+
+    
+    <div class="card" style="--i:0;">
+      You carry more depth than you let people see. <br>
+      It’s one of the things I admire about you. I love you.
+      <button class="card-btn" data-msg="You are amazing!">💌</button>
+    </div>
+
+    <div class="card" style="--i:1;">
+      Strong mind. Soft heart. Unmatched presence. I love you.
+      <button class="card-btn" data-msg="Stay strong and amazing!">💌</button>
+    </div>
+
+    <div class="card" style="--i:2;">
+      You pretend you’re ordinary, but there’s nothing ordinary about your spirit. I love you.
+      <button class="card-btn" data-msg="You are extraordinary!">💌</button>
+    </div>
+
+    <div class="card" style="--i:3;">
+      Your quiet strength speaks louder than most people’s noise. I love you.
+      <button class="card-btn" data-msg="Your strength inspires!">💌</button>
+    </div>
+
+    <div class="card" style="--i:4;">
+      There’s a rare kind of fire in you — steady, not loud. I love you.
+      <button class="card-btn" data-msg="Keep shining!">💌</button>
+    </div>
+
+    <div class="card" style="--i:5;">
+      You don’t try to shine, yet somehow you always do. I love you.
+      <button class="card-btn" data-msg="You light up the world!">💌</button>
+    </div>
+
+    <div class="card" style="--i:6;">
+      We may joke, we may clash, but I see your worth. I love you.
+      <button class="card-btn" data-msg="You are valued!">💌</button>
+    </div>
+
+  </div>
+
+  <script src="love.js"></script>
+  <script>
+   
+    document.querySelectorAll('.card-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        alert(btn.dataset.msg);
+      });
+    });
+  </script>
+</body>
+</html>
